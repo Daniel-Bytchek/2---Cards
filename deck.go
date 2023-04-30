@@ -19,6 +19,10 @@ func newDeck() deck {
 	return newCards
 }
 
+func deal(d deck, amount int) (deck, deck) {
+	return d[:amount], d[amount:]
+}
+
 func (d deck) print() {
 	for _, card := range d {
 		fmt.Println(card)
