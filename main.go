@@ -12,4 +12,8 @@ func main() {
 	hand.print()
 	fmt.Println("---------------")
 	cards.print()
+
+	fmt.Println("---------------")
+
+	fmt.Println(hand.toString())
 }
