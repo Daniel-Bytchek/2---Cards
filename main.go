@@ -1,11 +1,11 @@
 package main
 
+import "fmt"
+
 var num int
 
 func main() {
-	cards := newDeck()
 
-	hand, cards := deal(cards, 7)
-
-	hand.saveToFile("player1")
+	result := readDeck("player2")
+	fmt.Println(result)
 }
