@@ -1,6 +1,9 @@
 package main
 
-import "testing"
+import (
+	"os"
+	"testing"
+)
 
 func TestNewDeck(t *testing.T) {
 	d := newDeck()
@@ -25,4 +28,21 @@ func TestLastCard(t *testing.T) {
 	if d[len(d)-1] != last_card {
 		t.Errorf("Expected last card %v, not %v", last_card, d[len(d)-1])
 	}
+}
+
+func TestDeckOperations(t *testing.T) {
+	//deleting test file if it somehow exists
+	os.Remove("_decktesting")
+
+	d := newDeck()
+
+	d.saveToFile("_decktesting")
+
+	b := readDeck("_decktesting")
+
+	if len(b) != 52 {
+		t.Errorf("Incorrect amount of cards in deck, expected 52, not %v", len(b))
+	}
+
+	os.Remove("_decktesting")
 }
